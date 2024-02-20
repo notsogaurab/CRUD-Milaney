@@ -1,13 +1,6 @@
 {
   "internmembers": [
     {
-      "id": "f99e",
-      "name": "MIlan Pokhrel",
-      "address": "Pokhara, Lamachaur",
-      "dob": "1999-02-10",
-      "selection": false
-    },
-    {
       "id": "af57",
       "name": "Test",
       "address": "Pokhara",

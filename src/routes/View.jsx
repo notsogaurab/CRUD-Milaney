@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getInterns } from '../requests/axios';
+import { getInterns, deleteIntern } from '../requests/axios';
 import RouteButton from '../components/RouteButton';
 
 const View = () => {
@@ -12,6 +12,19 @@ const View = () => {
             .catch((error) => console.error('Error fetching interns:', error));
     }, []);
 
+    const handleDelete = async (id) => {
+        const confirmDelete = window.confirm('Are you sure you want to delete this intern?');
+        if (confirmDelete) {
+            try {
+                await deleteIntern(id);
+                setInterns(interns.filter(intern => intern.id !== id));
+                console.log('Intern deleted successfully.');
+            } catch (error) {
+                console.error('Error deleting intern:', error);
+            }
+        }
+    };
+
     return (
         <div className="min-h-screen bg-gray-100 py-8">
             <div className="max-w-6xl mx-auto px-4">
@@ -22,8 +35,11 @@ const View = () => {
                             <h3 className="text-lg font-semibold mb-2">{intern.name}</h3>
                             <p className="text-gray-600 mb-2">Address: {intern.address}</p>
                             <p className="text-gray-600 mb-2">Date of Birth: {intern.dob}</p>
-                            <p className="text-gray-600 mb-2">Selected: <span className={` text-${intern.selection ? 'green-500' : 'red-600'} `}>{intern.selection ? 'Yes' : 'No'}</span></p>
-                            <Link to={`/edit/${intern.id}`} className="text-blue-500 hover:underline">Edit</Link>
+                            <p className="text-gray-600 mb-2">Selected: <span className={`text-${intern.selection ? 'green-500' : 'red-600'}`}>{intern.selection ? 'Yes' : 'No'}</span></p>
+                            <div className="flex gap-2">
+                                <Link to={`/edit/${intern.id}`} className="text-blue-500 hover:underline">Edit</Link>
+                                <button onClick={() => handleDelete(intern.id)} className="text-red-500 hover:underline" type="button">Delete</button>
+                            </div>
                         </div>
                     ))}
                 </div>
