@@ -1,0 +1,32 @@
+{
+  "internmembers": [
+    {
+      "id": "f99e",
+      "name": "MIlan Pokhrel",
+      "address": "Pokhara, Lamachaur",
+      "dob": "1999-02-10",
+      "selection": false
+    },
+    {
+      "id": "af57",
+      "name": "Test",
+      "address": "Pokhara",
+      "dob": "2024-02-15",
+      "selection": false
+    },
+    {
+      "id": "8b42",
+      "name": "MIlan Pokhrel",
+      "address": "Pokhara",
+      "dob": "2024-02-17",
+      "selection": true
+    },
+    {
+      "id": "98ab",
+      "name": "MIlan Pokhrel",
+      "address": "Pokhara",
+      "dob": "2024-02-17",
+      "selection": true
+    }
+  ]
+}
