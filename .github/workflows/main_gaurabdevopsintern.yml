@@ -31,7 +31,6 @@ jobs:
         # run: zip release.zip ./* -r
         run: |
           zip release.zip ./dist/* -r;
-          mv /home/site/wwwroot/dist/* ../;
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
